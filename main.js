@@ -203,7 +203,6 @@ const app = {
       if (e.target.tagName === 'I') return;
       const songIndex = Array.from(playlist.children).indexOf(e.target.closest('.song'));
       _this.currentIndex = songIndex;
-      _this.loadCurrentSong();
       _this.render();
       _this.scrollToActiveSong();
       audio.play();
