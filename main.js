@@ -176,7 +176,7 @@ const app = {
     // Xử lý khi tua
     audio.ontimeupdate = function() {
       if (audio.duration && !isSeeking) { // Chỉ cập nhật khi không đang tua
-        const progressPercent = Math.floor((audio.currentTime / audio.duration) * 100);
+        const progressPercent = Math.floor((audio.currentTime / audio.duration) * 1000);
         progress.value = progressPercent;
       }
     }
@@ -185,7 +185,7 @@ const app = {
     }
     progress.onmouseup = function() {
       isSeeking = false; // Kết thúc giữ để tua
-      const seekTime = audio.duration / 100 * progress.value;
+      const seekTime = audio.duration / 1000 * progress.value;
       audio.currentTime = seekTime;
     }
     progress.ontouchstart = function() {
@@ -193,7 +193,7 @@ const app = {
     }
     progress.ontouchend = function() {
       isSeeking = false; // Kết thúc giữ để tua
-      const seekTime = audio.duration / 100 * progress.value;
+      const seekTime = audio.duration / 1000 * progress.value;
       audio.currentTime = seekTime;
     }
 
