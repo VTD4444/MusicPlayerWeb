@@ -188,6 +188,14 @@ const app = {
       const seekTime = audio.duration / 100 * progress.value;
       audio.currentTime = seekTime;
     }
+    progress.ontouchstart = function() {
+      isSeeking = true; // Bắt đầu giữ để tua
+    }
+    progress.ontouchend = function() {
+      isSeeking = false; // Kết thúc giữ để tua
+      const seekTime = audio.duration / 100 * progress.value;
+      audio.currentTime = seekTime;
+    }
 
     //Xử lý khi click button
     nextBtn.onclick = () => _this.nextSong();
