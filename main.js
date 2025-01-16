@@ -260,7 +260,6 @@ const app = {
     this.setConfig('isRepeat', this.isRepeat);
     repeatBtn.classList.toggle('active', this.isRepeat);
     audio.loop = this.isRepeat;
-    this.scrollToActiveSong();
   },
   scrollToActiveSong: function() {
     setTimeout(() => {
@@ -273,6 +272,7 @@ const app = {
   loadConfig: function() {
     this.isRepeat = this.config.isRepeat;
     repeatBtn.classList.toggle('active', this.isRepeat);
+    audio.loop = this.isRepeat;
   },
   start: function() {
     this.loadConfig();
